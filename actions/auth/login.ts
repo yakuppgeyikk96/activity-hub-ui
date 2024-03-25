@@ -5,46 +5,35 @@ import { BASE_URL } from "../common/constants";
 import { FormState } from "../common/types";
 import setToken from "../common/set-token";
 
-const LoginFieldSchema = z
-  .object({
-    email: z
-      .string()
-      .min(1, {
-        message: "Email is required",
-      })
-      .email({
-        message: "Email is not valid",
-      }),
-    password1: z
-      .string()
-      .min(8, { message: "Password must be at least 8 characters." }),
-    password2: z
-      .string()
-      .min(1, { message: "Password confirmation is required." }),
-  })
-  .refine((data) => data.password1 === data.password2, {
-    message: "Passwords do not match.",
-    path: ["password2"],
-  });
+const LoginFieldSchema = z.object({
+  email: z
+    .string()
+    .min(1, {
+      message: "Email is required",
+    })
+    .email({
+      message: "Email is not valid",
+    }),
+  password: z
+    .string()
+    .min(8, { message: "Password must be at least 8 characters." }),
+});
 
-export async function signup(
+export async function login(
   prevState: FormState<{
     email: string;
-    password1: string;
-    password2: string;
+    password: string;
   }>,
   formData: FormData
 ): Promise<
   FormState<{
     email: string;
-    password1: string;
-    password2: string;
+    password: string;
   }>
 > {
   const validatedFields = LoginFieldSchema.safeParse({
     email: formData.get("email") as string,
-    password1: formData.get("password1") as string,
-    password2: formData.get("password2") as string,
+    password: formData.get("password") as string,
   });
 
   if (!validatedFields.success) {
@@ -56,11 +45,11 @@ export async function signup(
   }
 
   try {
-    const response = await fetch(`${BASE_URL}/users/signup`, {
+    const response = await fetch(`${BASE_URL}/users/login`, {
       method: "POST",
       body: JSON.stringify({
         email: validatedFields.data.email,
-        password: validatedFields.data.password1,
+        password: validatedFields.data.password,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -69,13 +58,15 @@ export async function signup(
 
     const responseData = await response.json();
 
-    setToken(responseData.result);
+    if (responseData.success) {
+      setToken(responseData.result);
+    }
 
     return {
       serverStatus: {
-        status: 200,
-        message: "Signup successful",
-        result: null,
+        status: responseData.status,
+        message: responseData.message,
+        result: responseData.result,
       },
     };
   } catch (error) {
