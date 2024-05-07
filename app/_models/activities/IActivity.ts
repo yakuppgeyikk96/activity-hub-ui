@@ -2,7 +2,7 @@ import { IComment } from "../comments/IComment";
 import { IUser } from "../users/IUser";
 
 export interface IActivity {
-  id: string;
+  _id: string;
   title: string;
   description: string;
   location: string;

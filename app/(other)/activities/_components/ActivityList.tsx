@@ -7,22 +7,34 @@ import { classNames } from "primereact/utils";
 import { Rating } from "primereact/rating";
 import { Card } from "primereact/card";
 import { DataView } from "primereact/dataview";
+import "./styles.scss";
 
 interface IActivityListProps {
   activities: IActivity[];
+  gCloudBaseUrl: string | undefined;
 }
 
-export default function ActivityList({ activities }: IActivityListProps) {
+export default function ActivityList({
+  activities,
+  gCloudBaseUrl,
+}: IActivityListProps) {
   const renderItem = (item: IActivity, index: number) => {
+    console.log(item);
+    console.log(gCloudBaseUrl + "/activity/" + item._id);
     return (
-      <div key={item.id} className="col-12">
+      <div key={item._id} className="col-12">
         <div
           className={classNames(
-            "flex flex-column xl:flex-row xl:align-items-start p-4 gap-4",
+            "flex flex-column xl:flex-row xl:align-items-start",
             { "border-top-1 surface-border": index !== 0 }
           )}
         >
-          <div className="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
+          <img
+            className="w-9 sm:w-16rem xl:w-20rem shadow-2 block xl:block mx-auto border-round"
+            src={gCloudBaseUrl ? `${gCloudBaseUrl}/activity/${item._id}` : ""}
+            alt={item._id}
+          />
+          <div className="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4 p-4">
             <div className="flex flex-column align-items-center sm:align-items-start gap-3">
               <div className="text-2xl font-bold text-900">{item.title}</div>
               <Rating
