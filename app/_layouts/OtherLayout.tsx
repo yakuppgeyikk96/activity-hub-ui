@@ -1,3 +1,4 @@
+import Appbar from "../_components/Appbar";
 import Navbar from "../_components/Navbar";
 
 interface IOtherLayoutProps {
@@ -8,7 +9,7 @@ export default function OtherLayout({ children }: IOtherLayoutProps) {
   return (
     <>
       <header>
-        <Navbar />
+        <Appbar />
       </header>
       <main>{children}</main>
       <div>other footer</div>
