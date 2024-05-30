@@ -1,6 +1,6 @@
 "use client";
 
-import { HomeMiniOutlined } from "@mui/icons-material";
+import { DarkModeOutlined, LoginOutlined } from "@mui/icons-material";
 import {
   AppBar,
   Box,
@@ -32,15 +32,16 @@ export default function Appbar() {
         height: "6rem",
       }}
     >
-      <Container
-        maxWidth="xl"
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          height: "100%",
-        }}
-      >
-        <Toolbar disableGutters>
+      <Container maxWidth="xl">
+        <Toolbar
+          disableGutters
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            height: "100%",
+          }}
+        >
           <Image
             src="/images/activityhub-logo.png"
             alt="logo"
@@ -72,6 +73,16 @@ export default function Appbar() {
             </Menu>
           </Box>
           <DesktopNavbar />
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Button
+              startIcon={
+                <DarkModeOutlined fontSize="large" sx={{ color: "#333" }} />
+              }
+            />
+            <Button startIcon={<LoginOutlined />} variant="contained">
+              Login
+            </Button>
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>

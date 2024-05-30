@@ -11,8 +11,8 @@ export default function DesktopNavbar() {
         display: {
           xs: "none",
           md: "flex",
-          paddingInline: "2rem",
         },
+        paddingLeft: "4rem",
       }}
     >
       {navbarItems.map((item) => (

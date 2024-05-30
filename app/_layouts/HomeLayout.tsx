@@ -1,6 +1,5 @@
 import { Container } from "@mui/material";
 import Appbar from "../_components/Appbar";
-import Navbar from "../_components/Navbar";
 
 interface IHomeLayoutProps {
   children: React.ReactNode;
