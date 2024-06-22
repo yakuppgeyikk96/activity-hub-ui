@@ -5,4 +5,5 @@ export interface IUser {
   avatar: string;
   createdAt?: Date;
   updatedAt?: Date;
+  type: "individual" | "company" | "community";
 }
