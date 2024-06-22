@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto_Mono } from "next/font/google";
 
-import "primeicons/primeicons.css";
-import "primereact/resources/themes/lara-light-blue/theme.css";
 import "./globals.css";
 
-import { PrimeReactProvider } from "primereact/api";
+import MuiThemeProvider from "@/theme/ThemeProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto_mono = Roboto_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,8 +19,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
-        <PrimeReactProvider>{children}</PrimeReactProvider>
+      <body className={`${roboto_mono.className}`}>
+        <MuiThemeProvider>{children}</MuiThemeProvider>
       </body>
     </html>
   );
