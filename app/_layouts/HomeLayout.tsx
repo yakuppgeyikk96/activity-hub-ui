@@ -1,5 +1,5 @@
 import { Container } from "@mui/material";
-import Appbar from "../_components/Appbar";
+import Appbar from "../../components/Appbar";
 
 interface IHomeLayoutProps {
   children: React.ReactNode;

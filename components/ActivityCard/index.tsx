@@ -1,8 +1,8 @@
 "use client";
 
-import AlarmIcon from "@/app/_components/Icons/AlarmIcon";
-import DurationIcon from "@/app/_components/Icons/DurationIcon";
-import PersonCapacityIcon from "@/app/_components/Icons/PersonCapacityIcon";
+import AlarmIcon from "@/components/Icons/AlarmIcon";
+import DurationIcon from "@/components/Icons/DurationIcon";
+import PersonCapacityIcon from "@/components/Icons/PersonCapacityIcon";
 import formatDate from "@/utils/formatDate";
 import {
   Box,
@@ -14,12 +14,12 @@ import {
   Typography,
 } from "@mui/material";
 import { IActivityCardProps } from "./ActivityCard.model";
-import LocationIcon from "@/app/_components/Icons/LocationIcon";
+import LocationIcon from "@/components/Icons/LocationIcon";
 import * as Styled from "./ActivityCard.styled";
 import { ReactNode } from "react";
-import PersonIcon from "@/app/_components/Icons/PersonIcon";
-import CompanyIcon from "@/app/_components/Icons/CompanyIcon";
-import CommunityIcon from "@/app/_components/Icons/CommunityIcon";
+import PersonIcon from "@/components/Icons/PersonIcon";
+import CompanyIcon from "@/components/Icons/CompanyIcon";
+import CommunityIcon from "@/components/Icons/CommunityIcon";
 
 export default function ActivityCard({
   itemId,

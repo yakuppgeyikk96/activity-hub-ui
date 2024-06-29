@@ -1,6 +1,6 @@
 "use client";
 
-import { IActivity } from "@/app/_models/activities/IActivity";
+import { IActivity } from "@/models/activities/IActivity";
 import { Box, Skeleton, Stack } from "@mui/material";
 import { useEffect, useState } from "react";
 import { IActivityListProps } from "./ActivityList.model";

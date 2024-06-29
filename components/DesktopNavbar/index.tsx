@@ -1,6 +1,6 @@
+import { navbarItems } from "@/constants/navbarItems";
 import { Box } from "@mui/material";
-import NavLink from "./NavLink";
-import { navbarItems } from "./constants";
+import NavLink from "../NavLink";
 
 export default function DesktopNavbar() {
   return (

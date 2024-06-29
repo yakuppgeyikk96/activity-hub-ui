@@ -1,4 +1,4 @@
-import { INavbarItem } from "./models";
+import { INavbarItem } from "@/models/common/INavbarItem";
 
 export const navbarItems: INavbarItem[] = [
   {

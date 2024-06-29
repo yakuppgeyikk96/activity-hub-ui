@@ -4,6 +4,7 @@ import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
 import MuiThemeProvider from "@/theme/ThemeProvider";
+import AuthDialog from "@/components/AuthDialog";
 
 const roboto_mono = Roboto_Mono({ subsets: ["latin"] });
 
@@ -20,7 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto_mono.className}`}>
-        <MuiThemeProvider>{children}</MuiThemeProvider>
+        <MuiThemeProvider>
+          {children}
+          <AuthDialog />
+        </MuiThemeProvider>
       </body>
     </html>
   );

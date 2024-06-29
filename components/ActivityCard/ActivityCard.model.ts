@@ -1,4 +1,4 @@
-import { IUser } from "@/app/_models/users/IUser";
+import { IUser } from "@/models/users/IUser";
 
 export interface IActivityCardProps {
   gCloudBaseUrl: string | undefined;

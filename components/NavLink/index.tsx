@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import * as Styled from "./Appbar.styled";
+import * as Styled from "./Navlink.styled";
 import { Typography } from "@mui/material";
 import { Suspense } from "react";
 import getIcon from "@/utils/getIcon";

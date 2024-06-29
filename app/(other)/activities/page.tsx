@@ -1,5 +1,5 @@
 import { get } from "@/actions/activity/get";
-import ActivityList from "./_components/ActivityList";
+import ActivityList from "../../../components/ActivityList";
 
 export default async function ActivitiesPage() {
   const activityData = await get();

@@ -1,8 +1,8 @@
 "use server";
 
-import { IApiResponse } from "@/app/_models/common/IApiResponse";
+import { IApiResponse } from "@/models/common/IApiResponse";
 import { BASE_URL } from "../common/constants";
-import { IActivity } from "@/app/_models/activities/IActivity";
+import { IActivity } from "@/models/activities/IActivity";
 import { revalidatePath } from "next/cache";
 
 export async function get(): Promise<IApiResponse<IActivity[]>> {

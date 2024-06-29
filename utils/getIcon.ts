@@ -1,5 +1,5 @@
-import HomeIcon from "@/app/_components/Icons/HomeIcon";
-import LinkIcon from "@/app/_components/Icons/LinkIcon";
+import HomeIcon from "@/components/Icons/HomeIcon";
+import LinkIcon from "@/components/Icons/LinkIcon";
 import React from "react";
 
 const Icons: { [key: string]: React.ComponentType<any> } = {

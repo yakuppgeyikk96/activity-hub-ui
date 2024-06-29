@@ -1,5 +1,5 @@
 import { Box, Container } from "@mui/material";
-import Appbar from "../_components/Appbar";
+import Appbar from "../../components/Appbar";
 
 interface IOtherLayoutProps {
   children: React.ReactNode;

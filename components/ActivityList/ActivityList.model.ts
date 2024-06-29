@@ -1,4 +1,4 @@
-import { IActivity } from "@/app/_models/activities/IActivity";
+import { IActivity } from "@/models/activities/IActivity";
 
 export interface IActivityListProps {
   activities: IActivity[];
