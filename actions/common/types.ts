@@ -5,9 +5,11 @@ export interface FormState<T> {
     };
     message?: string | null;
   };
-  serverStatus?: {
-    message: string;
-    status: number;
-    result: any;
-  };
+  serverStatus?:
+    | {
+        message: string;
+        status: number;
+        result: any;
+      }
+    | undefined;
 }

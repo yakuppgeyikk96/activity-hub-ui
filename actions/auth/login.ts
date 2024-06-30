@@ -20,7 +20,7 @@ const LoginFieldSchema = z.object({
 });
 
 export async function login(
-  prevState: FormState<{
+  _prevState: FormState<{
     email: string;
     password: string;
   }>,

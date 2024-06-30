@@ -1,10 +1,15 @@
-import { DarkModeOutlined, LoginOutlined } from "@mui/icons-material";
+import { DarkModeOutlined } from "@mui/icons-material";
 import { AppBar, Box, Button, Container, Toolbar } from "@mui/material";
 import Image from "next/image";
 import DesktopNavbar from "../DesktopNavbar";
 import AppbarLoginButton from "../AppbarLoginButton";
+import getToken from "@/actions/common/get-token";
 
 export default function Appbar() {
+  const token = getToken();
+
+  console.log(token);
+
   return (
     <AppBar
       position="static"
@@ -38,7 +43,7 @@ export default function Appbar() {
                 <DarkModeOutlined fontSize="large" sx={{ color: "#333" }} />
               }
             />
-            <AppbarLoginButton />
+            {!token ? <AppbarLoginButton /> : null}
           </Box>
         </Toolbar>
       </Container>

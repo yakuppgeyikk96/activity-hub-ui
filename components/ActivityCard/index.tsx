@@ -1,5 +1,3 @@
-"use client";
-
 import AlarmIcon from "@/components/Icons/AlarmIcon";
 import DurationIcon from "@/components/Icons/DurationIcon";
 import PersonCapacityIcon from "@/components/Icons/PersonCapacityIcon";
@@ -15,11 +13,11 @@ import {
 } from "@mui/material";
 import { IActivityCardProps } from "./ActivityCard.model";
 import LocationIcon from "@/components/Icons/LocationIcon";
-import * as Styled from "./ActivityCard.styled";
 import { ReactNode } from "react";
 import PersonIcon from "@/components/Icons/PersonIcon";
 import CompanyIcon from "@/components/Icons/CompanyIcon";
 import CommunityIcon from "@/components/Icons/CommunityIcon";
+import * as styles from "./styles";
 
 export default function ActivityCard({
   itemId,
@@ -37,30 +35,30 @@ export default function ActivityCard({
       switch (user.type) {
         case "individual":
           return (
-            <Styled.ActivityInformationItemContainer>
+            <Box component="div" sx={styles.activityInformationItemContainer}>
               <PersonIcon />
               <Typography variant="subtitle1" color="text.primary">
                 {user.name}
               </Typography>
-            </Styled.ActivityInformationItemContainer>
+            </Box>
           );
         case "company":
           return (
-            <Styled.ActivityInformationItemContainer>
+            <Box component="div" sx={styles.activityInformationItemContainer}>
               <CompanyIcon />
               <Typography variant="subtitle1" color="text.primary">
                 {user.name}
               </Typography>
-            </Styled.ActivityInformationItemContainer>
+            </Box>
           );
         case "community":
           return (
-            <Styled.ActivityInformationItemContainer>
+            <Box component="div" sx={styles.activityInformationItemContainer}>
               <CommunityIcon />
               <Typography variant="subtitle1" color="text.primary">
                 {user.name}
               </Typography>
-            </Styled.ActivityInformationItemContainer>
+            </Box>
           );
       }
     }
@@ -68,26 +66,15 @@ export default function ActivityCard({
   };
 
   return (
-    <Card sx={{ width: "100%", display: "flex" }}>
-      <CardActionArea
-        sx={{ display: "flex", justifyContent: "flex-start", gap: "1rem" }}
-        disableRipple
-      >
+    <Card sx={styles.activityCardContainer} elevation={0}>
+      <CardActionArea sx={styles.activityCardActionArea} disableRipple>
         <CardMedia
           component="img"
           image={gCloudBaseUrl ? `${gCloudBaseUrl}/activity/${itemId}` : ""}
           alt={itemId}
           sx={{ width: "35%" }}
         />
-        <CardContent
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            height: "100%",
-            width: "40%",
-            gap: "1rem",
-          }}
-        >
+        <CardContent sx={styles.activityCardContent1}>
           {renderOwnerOfActivity()}
           <Box component="div">
             <Typography gutterBottom variant="body1" component="div">
@@ -98,43 +85,33 @@ export default function ActivityCard({
             </Typography>
           </Box>
         </CardContent>
-        <CardContent
-          sx={{
-            height: "100%",
-            width: "25%",
-            borderLeft: "1px dashed #e0e0e0",
-            display: "flex",
-            flexDirection: "column",
-            gap: "0.5rem",
-            justifyContent: "space-between",
-          }}
-        >
-          <Styled.ActivityInformationContainer>
-            <Styled.ActivityInformationItemContainer>
+        <CardContent sx={styles.activityCardContent2}>
+          <Box component="div" sx={styles.activityInformationContainer}>
+            <Box component="div" sx={styles.activityInformationItemContainer}>
               <AlarmIcon />
               <Typography variant="body2" color="text.secondary">
                 {formatDate(date, "MMM DD, YYYY")}
               </Typography>
-            </Styled.ActivityInformationItemContainer>
-            <Styled.ActivityInformationItemContainer>
+            </Box>
+            <Box component="div" sx={styles.activityInformationItemContainer}>
               <PersonCapacityIcon />
               <Typography variant="body2" color="text.secondary">
                 {`${capacity} persons`}
               </Typography>
-            </Styled.ActivityInformationItemContainer>
-            <Styled.ActivityInformationItemContainer>
+            </Box>
+            <Box component="div" sx={styles.activityInformationItemContainer}>
               <DurationIcon />
               <Typography variant="body2" color="text.secondary">
                 {`${duration}h`}
               </Typography>
-            </Styled.ActivityInformationItemContainer>
-            <Styled.ActivityInformationItemContainer>
+            </Box>
+            <Box component="div" sx={styles.activityInformationItemContainer}>
               <LocationIcon />
               <Typography variant="body2" color="text.secondary">
                 {location}
               </Typography>
-            </Styled.ActivityInformationItemContainer>
-          </Styled.ActivityInformationContainer>
+            </Box>
+          </Box>
 
           <Button
             size="small"
